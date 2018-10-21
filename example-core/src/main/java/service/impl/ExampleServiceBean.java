@@ -10,4 +10,9 @@ public class ExampleServiceBean implements ExampleService {
     public void changeConsoleLogLevel(String level) {
         loggerService.changeConsoleLogLevel(level);
     }
+
+    @Override
+    public void changeFileLogLevel(String level) {
+        loggerService.changeFileLogLevel(level);
+    }
 }

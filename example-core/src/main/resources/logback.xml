@@ -7,7 +7,7 @@
             <pattern>%d{yyyy-MM-dd HH:mm:ss} %-8([%thread]) %-8([%level]) %logger{50} - %msg%n</pattern>
         </encoder>
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>warn</level>
+            <level>info</level>
         </filter>
     </appender>
 
@@ -17,8 +17,8 @@
             <pattern>%d{yyyy-MM-dd HH:mm:ss} %-8([%thread]) %-8([%level]) %logger{50} - %msg%n</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${log_home}/example.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxFileSize>50MB</maxFileSize>
+            <fileNamePattern>${log_home}/%d{yyyy-MM-dd}.example.%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
             <maxHistory>60</maxHistory>
             <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>

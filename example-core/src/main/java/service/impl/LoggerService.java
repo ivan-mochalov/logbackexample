@@ -11,16 +11,27 @@ public class LoggerService {
     private static final Logger logger = LoggerFactory.getLogger(LoggerService.class);
     private static final String ROOT_LOGGER_NAME = "root";
     private static final String CONSOLE_APPENDER_NAME = "console";
+    private static final String FILE_APPENDER_NAME = "file";
+
+    private static final String LOGGER_LEVEL_CHANGE_MESSAGE = "Logger level changed to {} in {} appender";
 
     public void changeConsoleLogLevel(String level) {
-        logger.info("Console logger level changed to {}", level);
+        changeLogLevel(level, CONSOLE_APPENDER_NAME);
+    }
+
+    public void changeFileLogLevel(String level) {
+        changeLogLevel(level, FILE_APPENDER_NAME);
+    }
+
+    private void changeLogLevel(String level, String appenderName) {
         LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
         ch.qos.logback.classic.Logger root = context.getLogger(ROOT_LOGGER_NAME);
-        Appender<ILoggingEvent> console = root.getAppender(CONSOLE_APPENDER_NAME);
-        console.clearAllFilters();
+        Appender<ILoggingEvent> appender = root.getAppender(appenderName);
+        appender.clearAllFilters();
         ThresholdFilter thresholdFilter = new ThresholdFilter();
         thresholdFilter.setLevel(level);
         thresholdFilter.start();
-        console.addFilter(thresholdFilter);
+        appender.addFilter(thresholdFilter);
+        logger.info(LOGGER_LEVEL_CHANGE_MESSAGE, level, appender);
     }
 }
