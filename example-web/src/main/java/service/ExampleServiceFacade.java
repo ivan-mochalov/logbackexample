@@ -10,4 +10,9 @@ public class ExampleServiceFacade implements ExampleService {
     public void changeConsoleLogLevel(String level) {
         exampleService.changeConsoleLogLevel(level);
     }
+
+    @Override
+    public void changeFileLogLevel(String level) {
+        exampleService.changeFileLogLevel(level);
+    }
 }
