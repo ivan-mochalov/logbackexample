@@ -1,4 +1,4 @@
-package service.impl;
+package my.example.service;
 
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.classic.filter.ThresholdFilter;

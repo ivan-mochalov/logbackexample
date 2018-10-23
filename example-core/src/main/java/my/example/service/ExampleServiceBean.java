@@ -1,6 +1,6 @@
-package service.impl;
+package my.example.service;
 
-import service.ExampleService;
+import my.example.api.ExampleService;
 
 public class ExampleServiceBean implements ExampleService {
 

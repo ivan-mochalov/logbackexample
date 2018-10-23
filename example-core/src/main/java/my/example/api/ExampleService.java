@@ -1,4 +1,4 @@
-package service;
+package my.example.api;
 
 public interface ExampleService {
 

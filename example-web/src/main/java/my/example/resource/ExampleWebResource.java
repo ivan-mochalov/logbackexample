@@ -1,8 +1,8 @@
-package resource;
+package my.example.resource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import service.ExampleServiceFacade;
+import my.example.service.ExampleServiceFacade;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -30,11 +30,15 @@ public class ExampleWebResource {
 
     private void checkThisOut() {
         for (int i = 0; i < 100; i++) {
-            logger.error("{} error message", i);
-            logger.warn("{} warn message", i);
-            logger.info("{} info message", i);
-            logger.debug("{} debug message", i);
-            logger.trace("{} trace message", i);
+            doLogging(i);
         }
+    }
+
+    private void doLogging(int i) {
+        logger.error("{} error message", i);
+        logger.warn("{} warn message", i);
+        logger.info("{} info message", i);
+        logger.debug("{} debug message", i);
+        logger.trace("{} trace message", i);
     }
 }

@@ -1,6 +1,6 @@
-package service;
+package my.example.service;
 
-import service.impl.ExampleServiceBean;
+import my.example.api.ExampleService;
 
 public class ExampleServiceFacade implements ExampleService {
 
